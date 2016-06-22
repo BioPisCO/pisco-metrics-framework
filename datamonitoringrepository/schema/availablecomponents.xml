@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<availablecomponents>
+	<component>
+		<id>metrics-module-citation-4yyFa7VQx</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>	
+		<frequency>daily</frequency>
+		<resource>
+			<name>BLAST</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/elixirhub/metrics-module-citation.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-citation-VJ6K67Nme</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>SAM</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/elixirhub/metrics-module-citation.git</repository>	
+	</component>
+</availablecomponents>

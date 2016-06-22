@@ -1,0 +1,48 @@
+{
+  "name": "PIsCO",
+  "version": "0.1.0",
+  "description": "A Performance Indicators Framework for COllection of Biological Resource Metrics",
+  "author": "Haydee Artaza",
+  "contributors": [
+    {
+      "name": "Haydee Artaza, Manuel Corpas, Rafel Jimenez",
+      "email": "haydee.artaza@tgac.ac.uk"
+    }
+  ],
+  "keywords": [
+    "metrics",
+    "sharing",
+	 "automatic collection",
+    "registry",
+    "key performance indicators",
+	 "monitoring"
+  ],
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "bootstrap": "^3.3.6",
+    "cheerio": "^0.19.0",
+    "exec": "^0.2.1",
+    "express": "^4.13.4",
+    "gith": "^1.0.4",
+    "github-download": "^0.4.0",
+    "hbs": "^4.0.0",
+    "js2xmlparser": "^1.0.0",
+    "jsdoc": "^3.4.0",
+    "jstoxml": "^0.2.3",
+    "libxmljs": "^0.17.0",
+    "libxslt": "^0.6.3",
+    "mongodb": "^2.1.4",
+    "monitor": "^0.6.10",
+    "node-schedule": "^0.6.0",
+    "npm": "^3.6.0",
+    "oauth": "^0.9.14",
+    "request": "^2.69.0",
+    "shortid": "^2.2.4",
+    "xml2js": "^0.4.16",
+    "xsd-schema-validator": "^0.3.1"
+  },
+  "subdomain": "metrics",
+  "analyze": true,
+  "license": "TGAC"
+}
