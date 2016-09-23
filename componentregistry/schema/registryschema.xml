@@ -3,7 +3,7 @@
   <component>
     <name>Metric name</name>
     <description>A brief description about this metric</description>
-    <authors>TGAC, EBI, ELIXIR</authors>
+    <authors>EARLHAM, EBI, ELIXIR</authors>
     <input>
       <parameter>parameters to execute this component</parameter>
     </input>
@@ -35,7 +35,7 @@
     <resources>
       <rsc>database</rsc>
     </resources>
-    <repository>https://github.com/elixirhub/metrics-module-citation.git</repository>
+    <repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>
     <id>metrics-module-citation-N1s1GoKul</id>
     <version>final</version>
     <lastupdate>21/0/2016</lastupdate>
@@ -55,9 +55,479 @@
     <resources>
       <rsc>software</rsc>
     </resources>
-    <repository>https://github.com/elixirhub/metrics-module-tweets.git</repository>
+    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
     <id>metrics-module-tweets-4JHxt54kW</id>
     <version>final</version>
     <lastupdate>11/3/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-tweets</name>
+    <description>Topic spread</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>github</parameter>
+    </input>
+    <output>list</output>
+    <dependencies>
+      <library>oauth</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
+    <id>metrics-module-tweets-SyAyuso</id>
+    <version>final</version>
+    <lastupdate>13/3/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-pageviews</name>
+    <description>Page views count</description>
+    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
+    <input>
+      <parameter>SAM</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>es6-promise</library>
+      <library>request</library>
+    </dependencies>
+    <frequency>daily</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
+    <id>metrics-module-pageviews-SJ6c11c-</id>
+    <version>final</version>
+    <lastupdate>6/4/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-pageviews</name>
+    <description>Page views count</description>
+    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
+    <input>
+      <parameter>SAM</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>es6-promise</library>
+      <library>request</library>
+    </dependencies>
+    <frequency>daily</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
+    <id>metrics-module-pageviews-SyO_Gy9Z</id>
+    <version>final</version>
+    <lastupdate>6/4/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-pageviews</name>
+    <description>Page views count</description>
+    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
+    <input>
+      <parameter>SAM</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>es6-promise</library>
+      <library>request</library>
+    </dependencies>
+    <frequency>daily</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
+    <id>metrics-module-pageviews-ryv2zy9W</id>
+    <version>final</version>
+    <lastupdate>6/4/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-pageviews</name>
+    <description>Page views count</description>
+    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
+    <input>
+      <parameter>SAM</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>es6-promise</library>
+      <library>request</library>
+    </dependencies>
+    <frequency>daily</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
+    <id>metrics-module-pageviews-S1Gxmy9b</id>
+    <version>final</version>
+    <lastupdate>6/4/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-citation</name>
+    <description>Citations in publications</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>swissprot,swiss prot,swiss-prot,UniProtKB,uniprot</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>xml2js</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>database</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>
+    <id>metrics-module-citation-BJ68fL-H</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-citation</name>
+    <description>Citations in publications</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>swissprot,swiss prot,swiss-prot,UniProtKB,uniprot</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>xml2js</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>database</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>
+    <id>metrics-module-citation-SJpqM8-B</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-citation</name>
+    <description>Citations in publications</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>swissprot,swiss prot,swiss-prot,UniProtKB,uniprot</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>xml2js</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>database</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>
+    <id>metrics-module-citation-r1UsGU-H</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-citation</name>
+    <description>Citations in publications</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>swissprot,swiss prot,swiss-prot,UniProtKB,uniprot</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>xml2js</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>database</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>
+    <id>metrics-module-citation-SJOoGUWr</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-citation</name>
+    <description>Citations in publications</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>swissprot,swiss prot,swiss-prot,UniProtKB,uniprot</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>xml2js</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>database</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>
+    <id>metrics-module-citation-BJ2sM8ZS</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-citation</name>
+    <description>Citations in publications</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>swissprot,swiss prot,swiss-prot,UniProtKB,uniprot</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>xml2js</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>database</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>
+    <id>metrics-module-citation-HJAjGIbS</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-pageviews</name>
+    <description>Page views count</description>
+    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
+    <input>
+      <parameter>SAM</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>es6-promise</library>
+      <library>request</library>
+    </dependencies>
+    <frequency>daily</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
+    <id>metrics-module-pageviews-B1z0fIWr</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-pageviews</name>
+    <description>Page views count</description>
+    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
+    <input>
+      <parameter>SAM</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>es6-promise</library>
+      <library>request</library>
+    </dependencies>
+    <frequency>daily</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
+    <id>metrics-module-pageviews-HJ4CMIbH</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-pageviews</name>
+    <description>Page views count</description>
+    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
+    <input>
+      <parameter>SAM</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>es6-promise</library>
+      <library>request</library>
+    </dependencies>
+    <frequency>daily</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
+    <id>metrics-module-pageviews-ByP0fIbH</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-pageviews</name>
+    <description>Page views count</description>
+    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
+    <input>
+      <parameter>SAM</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>es6-promise</library>
+      <library>request</library>
+    </dependencies>
+    <frequency>daily</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
+    <id>metrics-module-pageviews-S1iAfIWr</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-pageviews</name>
+    <description>Page views count</description>
+    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
+    <input>
+      <parameter>SAM</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>es6-promise</library>
+      <library>request</library>
+    </dependencies>
+    <frequency>daily</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
+    <id>metrics-module-pageviews-ryCAzUZS</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-pageviews</name>
+    <description>Page views count</description>
+    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
+    <input>
+      <parameter>SAM</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>es6-promise</library>
+      <library>request</library>
+    </dependencies>
+    <frequency>daily</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
+    <id>metrics-module-pageviews-Bybym8WB</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-tweets</name>
+    <description>Topic spread</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>github</parameter>
+    </input>
+    <output>list</output>
+    <dependencies>
+      <library>oauth</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
+    <id>metrics-module-tweets-ByAlN8bH</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-tweets</name>
+    <description>Topic spread</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>github</parameter>
+    </input>
+    <output>list</output>
+    <dependencies>
+      <library>oauth</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
+    <id>metrics-module-tweets-S1lbEUWH</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-tweets</name>
+    <description>Topic spread</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>github</parameter>
+    </input>
+    <output>list</output>
+    <dependencies>
+      <library>oauth</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
+    <id>metrics-module-tweets-ByXWNIZB</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-tweets</name>
+    <description>Topic spread</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>github</parameter>
+    </input>
+    <output>list</output>
+    <dependencies>
+      <library>oauth</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
+    <id>metrics-module-tweets-HkB-4LWS</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-tweets</name>
+    <description>Topic spread</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>github</parameter>
+    </input>
+    <output>list</output>
+    <dependencies>
+      <library>oauth</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
+    <id>metrics-module-tweets-rJJMVUZB</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-tweets</name>
+    <description>Topic spread</description>
+    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
+    <input>
+      <parameter>github</parameter>
+    </input>
+    <output>list</output>
+    <dependencies>
+      <library>oauth</library>
+    </dependencies>
+    <frequency>monthly</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
+    <id>metrics-module-tweets-HJbf4LZH</id>
+    <version>final</version>
+    <lastupdate>17/5/2016</lastupdate>
   </component>
 </components_metrics>
