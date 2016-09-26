@@ -17,7 +17,6 @@
     <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
   </component>
   <component>
-  <component>
     <id>metrics-module-citation-4yyFa7VQx</id>
     <name>metrics-module-citation</name>
     <frequency>daily</frequency>
