@@ -6,7 +6,7 @@
     <frequency>hour</frequency>
     <resource>software</resource>
     <enable>true</enable>
-    <installed>true</installed>
+    <installed>false</installed>
     <input>
       <parameter>BLAST</parameter>
     </input>
@@ -23,7 +23,7 @@
     <frequency>daily</frequency>
     <resource>software</resource>
     <enable>true</enable>
-    <installed>true</installed>
+    <installed>false</installed>
     <input>
       <parameter>BLAST</parameter>
     </input>
@@ -39,7 +39,7 @@
     <frequency>daily</frequency>
     <resource>software</resource>
     <enable>true</enable>
-    <installed>true</installed>
+    <installed>false</installed>
     <input>
       <parameter>BLAST</parameter>
     </input>
