@@ -35,7 +35,7 @@
     <resources>
       <rsc>database</rsc>
     </resources>
-    <repository>https://github.com/elixirhub/metrics-module-citation.git</repository>
+    <repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>
     <id>metrics-module-citation-N1s1GoKul</id>
     <version>final</version>
     <lastupdate>21/0/2016</lastupdate>
@@ -55,9 +55,30 @@
     <resources>
       <rsc>software</rsc>
     </resources>
-    <repository>https://github.com/elixirhub/metrics-module-tweets.git</repository>
+    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
     <id>metrics-module-tweets-4JHxt54kW</id>
     <version>final</version>
     <lastupdate>11/3/2016</lastupdate>
+  </component>
+  <component>
+    <name>metrics-module-pageviews</name>
+    <description>Page views count</description>
+    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
+    <input>
+      <parameter>SAM</parameter>
+    </input>
+    <output>number</output>
+    <dependencies>
+      <library>es6-promise</library>
+      <library>request</library>
+    </dependencies>
+    <frequency>daily</frequency>
+    <resources>
+      <rsc>software</rsc>
+    </resources>
+    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
+    <id>metrics-module-pageviews-SJ6c11c-</id>
+    <version>final</version>
+    <lastupdate>6/4/2016</lastupdate>
   </component>
 </components_metrics>
