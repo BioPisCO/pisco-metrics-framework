@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <availablecomponents>
 	<component>
+		<id>metrics-module-tweets-4J0BTmNQx</id>
+		<name>Social Media</name>
+		<description>Provides evidence about the sharing or the discussing of specific resource into the Twitter Community</description>
+		<detail>
+			<api>Twitter Streaming API</api>
+			<query>Keyword or comma-separated words</query>
+			<output>Total tweets scaned in a specific time interval (minute, day, month)</output>
+		</detail>
+		<frequency>daily</frequency>
+		<resource>
+			<name>BLAST</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>	
+	</component>
+	<component>
 		<id>metrics-module-citation-4yyFa7VQx</id>
 		<name>Citation</name>
 		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
@@ -14,22 +30,22 @@
 			<name>BLAST</name>
 			<type>software</type>
 		</resource>
-		<repository>https://github.com/elixirhub/metrics-module-citation.git</repository>	
+		<repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>	
 	</component>
 	<component>
-		<id>metrics-module-citation-VJ6K67Nme</id>
-		<name>Citation</name>
-		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<id>metrics-module-pageviews-SJ6c11c-</id>
+		<name>Wiki page views</name>
+		<description>Provides a pageviews trends on specific articles or projects in Wikipedia</description>
 		<detail>
-				<api>NCBI API (E-utilities)</api>
-				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
-				<output>Total publication that includes the keyword</output>
+				<api>Analytics/Pageview API</api>
+				<query>Keyword to access Wikipedia</query>
+				<output>Total page views for this Wikipedia accession</output>
 		</detail>			
 		<frequency>daily</frequency>
 		<resource>
-			<name>SAM</name>
+			<name>BLAST</name>
 			<type>software</type>
 		</resource>
-		<repository>https://github.com/elixirhub/metrics-module-citation.git</repository>	
+		<repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>	
 	</component>
 </availablecomponents>
