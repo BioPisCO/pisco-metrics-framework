@@ -5,7 +5,7 @@ var databaseconf = require('../config/configdatabase.js')
 
 
 /**
- * Object to admin Components.
+ * Object to admin the database actions.
  * @constructor
  */
 var Database = function () {
@@ -25,7 +25,7 @@ Database.prototype ={
  /**
  * Insert new resource into DB metricsdb
  * @param {JSON} resource - new resource.
- * @param {function} callback - Callback function (return true or false and value of this execution).
+ * @param {Requester~requestCallback} callback - Callback function (return true or false and value of this execution).
  * @memberOf  Database
  */
   
@@ -68,7 +68,7 @@ Database.prototype ={
  /**
  * Remove one resource into DB metricsdb
  * @param {string} query - list of key: resource keywords to remove, e.g. {"name":"uniprot","type" : "database","metric":"metric_id"}.
- * @param {object} callback - - Callback function (true or false).
+ * @param {Requester~requestCallback} callback - Callback function (true or false).
  * @memberOf  Database
  */
   
@@ -101,9 +101,9 @@ Database.prototype ={
  },
  
 /**
- * Update the frequency array in one resource
- * @param {string} query - list of key:resource keyword to update, for example {"name":"uniprot","type" : "database","metric":"citation-4ywN_j5H"}.
- * @param {string} newfrequency - new value to add, for example {"period":"minute","date":"2015-06-24T15:42:11.010Z","value":"50480"}
+ * Update the frequency list in one resource
+ * @param {string} query - list of key:resource keyword to update, e.g. {"name":"uniprot","type" : "database","metric":"citation-4ywN_j5H"}.
+ * @param {string} newfrequency - new value to add, e.g. {"period":"minute","date":"2015-06-24T15:42:11.010Z","value":"50480"}
  * @memberOf  Database
  */
   
@@ -140,8 +140,8 @@ Database.prototype ={
  
 /**
  * Find a resource into DB.
- * @param {string} query - list of key:resource keyword to update, for example {"name":"uniprot","type" : "database","metric":"citation-4ywN_j5H"}.
- * @param {object} callback - - Callback function (return search result).
+ * @param {string} query - list of key:resource keyword to update, e.g. {"name":"uniprot","type" : "database","metric":"citation-4ywN_j5H"}.
+ * @param {Object} callback - - Callback function (return search result).
  * @memberOf  Database
  */
   
@@ -174,9 +174,9 @@ Database.prototype ={
 
 
 /**
-* get the number of monitoring records for a scpecific component.
+* Get the number of monitoring records for a specific component.
 * @param {string} idcomponent - compenent id to find into database.
-* @param {function} callback - Callback function (return true or false and msg execution).
+* @param {Requester~requestCallback} callback - Callback function (return true or false and msg execution).
 * @memberOf  Database
 */
 monitoringRecordnumber: function (idcomponent, callback) {
@@ -191,7 +191,7 @@ monitoringRecordnumber: function (idcomponent, callback) {
 
 /**
  * Find all components into DB. This data is used to graph metrics
- * @param {object} callback - - Callback function (return search result).
+ * @param {Object} callback - - Callback function (return search result).
  * @memberOf  Database
  */
 monitoringAllComponents: function(callback) {
@@ -204,10 +204,10 @@ monitoringAllComponents: function(callback) {
 
 /**
  * Find a specific component into DB. This data is used in monitoring graphs
- * @param {string} idcomponent - component id to search {"metric":"citation-4ywN_j5H"}.
+ * @param {string} idcomponent - component id to search, e.g. {"metric":"citation-4ywN_j5H"}.
  * @param {string} startdate - start date monitoring
  * @param {string} enddate - end date monitoring
- * @param {object} callback - - Callback function (return search result).
+ * @param {Object} callback - Callback function (return search result and false o true value).
  * @memberOf  Database
  */
 monitoringComponentbydate: function(idcomponent, startdate, enddate, callback) { 
@@ -233,11 +233,11 @@ monitoringComponentbydate: function(idcomponent, startdate, enddate, callback) {
 
 
 /**
- * Find a specific component into DB and get data grouped by resource. This data is used in monitoring graphs
+ * Find a specific component into DB and getting data grouped by resource. This data is used in monitoring graphs
  * @param {string} idcomponent - component id to search {"metric":"citation-4ywN_j5H"}.
  * @param {string} startdate - star date monitoring
  * @param {string} enddate - end date monitoring
- * @param {object} callback - - Callback function (return search result).
+ * @param {Object} callback - - Callback function (return search result and false o true value).
  * @memberOf  Database
  */
 monitoringComponentbygroup: function(idcomponent, grouptype, metric, resource, startdate, enddate, callback) { 
@@ -277,12 +277,11 @@ module.exports = Database;
 
  /**
  * Update the frequency array in one resource. This function is called from insert function;
- * @param {string} query - list of key:resource keyword to update, for example {"name":"uniprot","type" : "database","metric":"citation-4ywN_j5H"}.
- * @param {object} db - database 
+ * @param {string} query - list of key:resource keyword to update, e.g. {"name":"uniprot","type" : "database","metric":"citation-4ywN_j5H"}.
+ * @param {Object} db - database 
  * @param {JSON} frequencies - old frequencies
  * @param {JSON} frequencies - new frequency to upgrade
- * @param {object} callback - - Callback function (return search result).
- * @memberOf  Database
+ * @param {Object} callback - - Callback function (return search result and false o true value).
  */
   
   function updatetoinsert(query, db, frequencies, newfrequency,callback) {
@@ -301,10 +300,9 @@ module.exports = Database;
 
 /**
  * Find a resource into DB. This function is called from update function
- * @param {object} collection - database collection 
- * @param {string} query - list of key:resource keyword to update, for example {"name":"uniprot","type" : "database","metric":"citation-4ywN_j5H"}.
- * @param {object} callback - - Callback function (return search result).
- * @memberOf  Database
+ * @param {Object} collection - database collection 
+ * @param {string} query - list of key:resource keyword to update, e.g {"name":"uniprot","type" : "database","metric":"citation-4ywN_j5H"}.
+ * @param {Object} callback - - Callback function (return search result).
  */
   
   function findtoupdate(collection,query,callback) {

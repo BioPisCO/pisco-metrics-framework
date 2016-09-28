@@ -11,7 +11,7 @@ var date = new Date();
 var version = 'final';
 var lastupdate = date.getDate() + '/' + date.getMonth()+ '/' + date.getFullYear();
 /**
- * Object to do different actions at the Components Registry schema.
+ * Object to manage different actions at the Components Registry schema.
  * @constructor
  */
 var Schema = function () {
@@ -28,7 +28,7 @@ Schema.prototype ={
   /**
  * Verify the Component Registry schema.
  * @param {string} url - url of XSD remote file schema to validate.
- * @param {function} callback - Callback function (return true or false).
+ * @param {Requester~requestCallback} callback - Callback function (return true or false).
  * @memberOf  Schema
  */
  verify: function (urlxml, callback) {
@@ -59,8 +59,8 @@ Schema.prototype ={
  },
 
  /**
- * Add new component at Components Registry xml schema.
- * @param {function} callback - Callback function (return true or false).
+ * Add new component at Components Registry XML schema.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false).
  * @param  {string} xmldata - New component XML data
  * @memberOf  Schema
  */
@@ -82,7 +82,8 @@ Schema.prototype ={
    });//parser.parseString end	
  },
   /**
- * create the Components Registry html schema.
+ * Create the Components Registry HTML schema.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false).
  * @memberOf  Schema
  */
  createregistryHTML: function(callback) {
@@ -102,14 +103,14 @@ Schema.prototype ={
  
  
 }
-/** Do accesible module Schema */
+/** Make accessible module Schema */
 module.exports = Schema;
 
  /**
  * Update the XML file at the Components Registry schema.
- * @param {array} newcomponents - array with the new components to add into
+ * @param {Object[]} newcomponents - array with the new components to add into
  * Components Registry XML file.
- * @param {function} callback - Callback function (return true or false).
+ * @param {Requester~requestCallback} callback - Callback function (return true or false).
  */
 function modifyComponentDataXML(newcomponents,callback){
 	var parser = new xml2js.Parser();

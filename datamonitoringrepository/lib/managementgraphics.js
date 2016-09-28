@@ -2,7 +2,7 @@ var DB = require('./database');
 var db = new DB();
 
 /**
- * Object to admin ManagementGraphics.
+ * Object to admin the Graphics data.
  * @constructor
  */
 var ManagementGraphics = function () {}
@@ -16,10 +16,10 @@ ManagementGraphics.prototype ={
 
 
 /**
-* get the number of monitoring records for a scpecific component.
+* Get the number of monitoring records for a specific component.
 * @param {string} idcomponent - compenent id to find into database.
-* @param {function} callback - Callback function (return true or false and msg execution).
-* @memberOf  MonitoringInterface
+* @param {Requester~requestCallback} callback - Callback function (return true or false and msg execution).
+* @memberOf  ManagementGraphics
 */
 getMonitoringrecordnumber: function (idcomponent, callback) {
 	db.monitoringRecordnumber(idcomponent, function(records,response){
@@ -34,7 +34,7 @@ getMonitoringrecordnumber: function (idcomponent, callback) {
 * @param {string} idcomponent - compenent id to find into database.
 * @param {string} datestart - initial date.
 * @param {string} dateend - end date.
-* @param {function} callback - Callback function (return true or false and msg execution).
+* @param {Requester~requestCallback} callback - Callback function.
 * @memberOf  ManagementGraphics
 */
 graphicComponentsdata: function (idcomponent, datestart, dateend, callback){
@@ -50,8 +50,8 @@ graphicComponentsdata: function (idcomponent, datestart, dateend, callback){
 
 
 /**
- * Extract all components data to graph metrics.
-* @param {function} callback - Callback function (return true or false and msg execution).
+ * Extract all components data for doing metrics graphics.
+* @param {Requester~requestCallback} callback - Callback function (return resourcesbytime, xlabels, ytitle, title,and true or false).
 * @memberOf  ManagementGraphics
 */
 graphicAllComponents: function (callback) {
@@ -63,11 +63,11 @@ graphicAllComponents: function (callback) {
 }, 
 
 /**
- * Extract component data to do metric graphics by date.
+ * Extract component data for doing metrics graphics by date.
 * @param {string} idcomponent - compenent id to find into database.
 * @param {string} datestart - initial date.
 * @param {string} dateend - end date.
-* @param {function} callback - Callback function (return true or false and msg execution).
+* @param {Requester~requestCallback} callback - Callback function (return resourcesbytime, xlabels, ytitle, title, and true or false).
 * @memberOf  ManagementGraphics
 */
 graphicComponent: function (idcomponent, datestart, dateend, callback) {
@@ -100,12 +100,12 @@ graphicComponent: function (idcomponent, datestart, dateend, callback) {
 
 
 /**
- * Extract component grouped data to do metric graphics by metric/resource group and date.
+ * Extract grouped component for doing metrics graphics grouped by metric/resource sorted by date.
 * @param {object} idsselectdcomponents - list of selected compenents to graphc.
 * @param {string} grouptype - type of grouped data (by Metric or by Resource).
 * @param {string} datestart - initial date.
 * @param {string} dateend - end date.
-* @param {function} callback - Callback function (return true or false and msg execution).
+* @param {Requester~requestCallback} callback - Callback function (return result,xlabels,ytitle,title, and true o false).
 * @memberOf  ManagementGraphics
 */
 graphicComponentbygroup: function (idsselectdcomponents, grouptype, datestart, dateend, callback) {
@@ -131,13 +131,14 @@ graphicComponentbygroup: function (idsselectdcomponents, grouptype, datestart, d
 }  
  
 }
-/** Do accesible module Graphic */
+/** Make accessible module Graphic */
 module.exports = ManagementGraphics;
 
 
 /** This fuction format the grouped result verifying if the group type is by Metric or by Resource:
  			[{"Resource":"Blast","Citation":"2704659","Social Media":"4499890"},
-			{"Resource":"Blast","Citation":"704659","Social Media":"499890"},]; **/
+			{"Resource":"Blast","Citation":"704659","Social Media":"499890"},]; 
+*/
 
 function formatDatatoGroupGraphic(grouptype,finalgroupeddata) {
 	var resultgroupeddata = [];

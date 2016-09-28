@@ -7,7 +7,7 @@ var environmentconf = require('../config/configenvironment.js')
 
 
 /**
- * Object to admin Components Scheduling .
+ * Object to admin Scheduling Monitoring Components.
  * @constructor
  */
 var MonitoringSchedule = function () { 
@@ -23,7 +23,7 @@ var MonitoringSchedule = function () {
 	/**
 	* Push a new component execution into jobs list
 	* @param {string} id - Component ID.
-	* @param {object} job - job schedule for this component.
+	* @param {Object} job - job schedule for this component.
 	* @memberOf  MonitoringSchedule
 	*/
 	push: function(id, job) {
@@ -61,7 +61,7 @@ var MonitoringSchedule = function () {
 	
 	
 /**
-* Run the components following a schedule
+* Run the a list of components following a schedule
 * @memberOf  MonitoringSchedule
 */
 
@@ -111,7 +111,11 @@ var MonitoringSchedule = function () {
 /** Do accesible module MonitoringSchedule */
 module.exports = MonitoringSchedule;
 
-
+/**
+ * Parse a JSON component based on a component extracted from XML structure
+ * @param {Object[]} parsedcomponent - component in XML format.
+ * @returns {JSON}  resource {name, type, metric, frequencies }
+*/
 function getresourcecollection(parsedcomponent){
 	//console.log('PARSED COMPONENT\n' + JSON.stringify(parsedcomponent));
 	var name = parsedcomponent.input[0].parameter[0];// resource name

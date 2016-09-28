@@ -16,7 +16,7 @@ var environmentconf = require('../config/configenvironment.js')
 							,jstoxml = require("js2xmlparser");
 
 /**
- * Object to manage all actions at the Data Monitoring Component using an Interface.
+ * Object to manage all actions at the Data Monitoring Component as a middle layer.
  * @constructor
  */
 var MonitoringInterface = function () {
@@ -26,13 +26,13 @@ var MonitoringInterface = function () {
 
 /**
  * MonitoringInterface module.
- * @module lib/MonitoriingInterface
+ * @module lib/MonitoringInterface
  */
 
 MonitoringInterface.prototype ={
   /**
  * Install all Components.
- * @param {function} callback - Callback function (return true or false).
+ * @param {Requester~requestCallback} callback - Callback function (return true or false).
  * @memberOf  MonitoringInterface
  */
  install: function (callback) {
@@ -40,7 +40,6 @@ MonitoringInterface.prototype ={
  },
  /**
  * Run all Components.
- * @param {function} callback - Callback function (return true or false and msg execution).
  * @memberOf  MonitoringInterface
  */
  run: function () {
@@ -53,7 +52,7 @@ MonitoringInterface.prototype ={
 * @param {string} idcomponent - compenent id to find into database.
 * @param {string} datestart - initial date.
 * @param {string} dateend - end date.
-* @param {function} callback - Callback function (return true or false and msg execution).
+* @param {Requester~requestCallback} callback - Callback function (return true or false and the execution message).
 * @memberOf  MonitoringInterface
 */
 graphicComponentsdata: function (idcomponent, datestart, dateend, callback) {
@@ -69,7 +68,7 @@ graphicComponentsdata: function (idcomponent, datestart, dateend, callback) {
 * @param {string} grouptype - type of grouped data (by Metric or by Resource).
 * @param {string} datestart - initial date.
 * @param {string} dateend - end date.
-* @param {function} callback - Callback function (return true or false and msg execution).
+* @param {Requester~requestCallback} callback - Callback function (return true or false and the execution message).
 * @memberOf  MonitoringInterface
 */
 graphicComponentbygroup: function (idsselectdsomponents, grouptype, datestart, dateend, callback) {
@@ -82,9 +81,9 @@ graphicComponentbygroup: function (idsselectdsomponents, grouptype, datestart, d
 
 
 /**
- * create selectedcomponents XML from registry components data.
- * @param {JSON} newselectedcomponents - JSON structure with the selected components from manage selected components.
- * @param {function} callback - Callback function (return true or false and msg execution).
+ * Create selectedcomponents XML from registry-components-data. If it exists add the new components
+ * @param {JSON} newselectedcomponents - JSON structure with the selected components from manage-selected-components.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false and the execution message).
  * @memberOf  MonitoringInterface
  */
 
@@ -106,7 +105,7 @@ createselectedcomponentsXML: function (newselectedcomponents,callback) {
 		 	 	fs.writeFile(environmentconf.SELECTEDCOMPONENTSXML,finalcomponentsxml, function (err) {
 		 			if (err ) {console.log(err);callback(err,false);}
 					else {
-						createselectedcomponentsHTML(callback); //craete selectedcomponents.HTML
+						createselectedcomponentsHTML(callback); //Update selectedcomponents.HTML (call the private/not-memberOf createselectedcomponentsHTML function)
 					}
 		 		});//fs.writeFile end
 			 });//parser.parseString end
@@ -116,8 +115,8 @@ createselectedcomponentsXML: function (newselectedcomponents,callback) {
 },
 
 /**
- * create selectedcomponents HTML from registry schema data.
- * @param {function} callback - Callback function (return true or false and msg execution).
+ * Create selectedcomponents HTML from manage-selected-components.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false and the execution message).
  * @memberOf  MonitoringInterface
  */
 createselectedcomponentsHTML: function (callback){
@@ -141,8 +140,8 @@ createselectedcomponentsHTML: function (callback){
 },
 
 /**
- * create available components HTML from availablecomponents xml.
- * @param {function} callback - Callback function (return true or false and msg execution).
+ * Create availablecomponents HTML from availablecomponents XML.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false and the execution message).
  * @memberOf  MonitoringInterface
  */
 createavailablecomponentsHTML: function (callback){
@@ -180,8 +179,8 @@ createavailablecomponentsHTML: function (callback){
 
 },
 /**
- * get available components from availablecomponents XML file.
- * @param {function} callback - Callback function (return true or false and available components).
+ * Get availablecomponents from availablecomponents XML file.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false and available components).
  * @memberOf  MonitoringInterface
  */
 getAvailableComponents: function (callback){
@@ -198,10 +197,15 @@ getAvailableComponents: function (callback){
 }
  
 }
-/** Do accesible module MonitoringInterface */
+/** Make accessible module MonitoringInterface */
 module.exports = MonitoringInterface;
 
 
+
+/**
+ * Update the selectedcomponents HTML from selectedcomponents XML file.
+ * @param {Requester~requestCallback} callback - Callback function (return the message and true or false).
+ */
 function createselectedcomponentsHTML(callback){
 		var libxslt = require('libxslt')
 		,libxmljs = require('libxmljs');
