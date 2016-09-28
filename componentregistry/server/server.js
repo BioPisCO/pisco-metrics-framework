@@ -5,8 +5,8 @@ var IR = require('../lib/interfaceregistry')
 	
 var app = express();
 
-app.use(express.static("../public")); //put accesible public directory and its sub directories
-app.set('views',  '../views'); //put accesible views
+app.use(express.static("../public")); //make accesible public directory and its sub directories
+app.set('views',  '../views'); //make accesible views
 
 app.disable('etag');
 
@@ -15,17 +15,17 @@ app.set('view engine', 'html'); //we can tell Express to treat HTML files as dyn
 app.engine('html', hbs.__express);
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+app.use(bodyParser.urlencoded({ // support URL-encoded bodies
   extended: true
 }));
 
-//***Show all the components registered and let us to register a new component**/
+ /** Register a new component and shows all the components registered */
 app.get('/register', function(req, res) {
 	interfaceregistry.createregistryHTML();
 	res.render('registry.html');
 });
 
-//*** registry component acction send from /register***//
+/** Registry component acction sent from /register */
 app.post('/registercomponent', function(req, res) {
   //res.send('You sent the URL "' + req.body.schema + '".');
   interfaceregistry.register(req.body.schema, function (response){
@@ -34,6 +34,7 @@ app.post('/registercomponent', function(req, res) {
   });
 });
 
+/**  Init server and listen in port */
 app.listen(8082, function() {
   console.log('Server running at http://127.0.0.1:8082');
 })
