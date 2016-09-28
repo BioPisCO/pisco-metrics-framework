@@ -19,6 +19,12 @@ app.use(bodyParser.urlencoded({ // support URL-encoded bodies
   extended: true
 }));
 
+/**
+  * Express: Fast, unopinionated, minimalist web framework for Node.js 
+  * @external express
+ */
+
+
  /** Register a new component and shows all the components registered */
 app.get('/register', function(req, res) {
 	interfaceregistry.createregistryHTML();

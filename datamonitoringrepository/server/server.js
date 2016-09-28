@@ -21,7 +21,13 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
-////////////////////*** manage HTML page to manage the components in selected components***/////////
+
+/**
+  * Express: Fast, unopinionated, minimalist web framework for Node.js 
+  * @external express
+ */
+
+/** Create HTML page to manage the all components properties that will be include in Selected Components */
 app.get('/managecomponents', function(req, res) {
 	interfacemonitoring.createselectedcomponentsHTML(function(msg,response){
 		if(!response) console.log(msg);
@@ -30,12 +36,14 @@ app.get('/managecomponents', function(req, res) {
 	
 });
 
-//***  HTML page with the selected components***//
+/**  Redirect and show the HTML page with the selected components created in /managecomponents */
 app.get('/selectedcomponents', function(req, res) {
 	res.render('selectedcomponents.html');
 });
 
-//*** render install components action***//
+/** Render install components actions
+ * This is functionality is under development
+ */
 app.post('/install', function(req, res) {
   //res.send('You sent the URL "' + req.body.schema + '".');
   interfacemonitoring.install(function (msg,response){
@@ -46,7 +54,11 @@ app.post('/install', function(req, res) {
   	else  {res.send(msg + '\nThere was a problem with the components instalation.');}
   });
 });
-//*** render run components action***//
+
+/** Render run components action
+ * This is functionality is under development
+ */
+
 app.post('/run', function(req, res) {
   //res.send('You sent the URL "' + req.body.schema + '".');
   interfacemonitoring.run();
@@ -54,30 +66,8 @@ app.post('/run', function(req, res) {
   res.render("selectedcomponents", {data: msg}); //it is not necessary add .html because we are using engine hbs html
 });
 
-//*** render show graphics***//
-app.post('/show', function(req, res) {
-	interfacemonitoring.show(function (resources, xlabels, ytitle, title, response) {	
-		if(res){
-			res.render('resourcesgraphs', { data: JSON.stringify(resources), xlabels: JSON.stringify(xlabels), ytitle: JSON.stringify(ytitle), title: JSON.stringify(title) } );
-		}
-		else {res.render('resourcesgraphs', { data: 'An error has happened' });} //change this
-	});
-});
 
-app.post('/monitoring', function(req, res) {
-	//console.log(req.body.idcomponent);
-	interfacemonitoring.showComponent(req.body.idcomponent,function (resources, xlabels, ytitle, title, response){
-		if(resources == undefined){res.render('selectedcomponents.html');}
-		else{
-			if(response){
-				res.render('resourcesgraphs', { data: JSON.stringify(resources), xlabels: JSON.stringify(xlabels), ytitle: JSON.stringify(ytitle), title: JSON.stringify(title) } );
-			}
-			else {res.send('There is a problem with this component'); res.render('selectedcomponents.html');} 
-		}
-	});//end showComponent
-});
-
-//*** create selectedcomponents.XML from manageselectedcomponents server action***//
+/** Create selectedcomponents.XML from manageselectedcomponents action */
 app.post('/createselectedcomponentsXML', function(req, res) {
 	var selectedcomponents = JSON.parse(req.body.componentsinput);
 	//console.log(req.body.componentsinput);
@@ -88,8 +78,7 @@ app.post('/createselectedcomponentsXML', function(req, res) {
 	
 });
 
-/////////////////////////////////////////*** manage HTML page to manage the available components ***//////////////
-
+/** Create the available HTML page to manage the available components */
 app.get('/availablecomponents', function(req, res) {
 	interfacemonitoring.createavailablecomponentsHTML(function(msg,response){
 		if(!response) console.log(msg);
@@ -98,7 +87,9 @@ app.get('/availablecomponents', function(req, res) {
 	
 });
 
-//*** render action metric detail from available components***//
+/** Render action metric detail from available components
+ * Show the graphics for each metric associated with an available components list
+ */
 app.post('/metricdetail', function(req, res) {
 	var idcomponent = req.body.idcomponent;
 	var name = req.body.name;
@@ -126,8 +117,9 @@ app.post('/metricdetail', function(req, res) {
 	
 });
 
-
-//*** render action monitoring all metrics from available components***//
+/** Render action metrics detail from available components
+ * Show the graphics for a group of metric-resource associated with an available components list
+ */
 app.get('/monitoringallmetrics', function(req, res) {
 	if(res){ 
 		if(typeof req.query.selectedmetrics == 'undefined'){
@@ -157,14 +149,18 @@ app.get('/monitoringallmetrics', function(req, res) {
 	else{res.send('There is a problem reading available components');}
 });
 
-
+/** Init server and listen in port */
 app.listen(8083, function() {
   console.log('Server running at http://127.0.0.1:8083');
 })
 
 
 
-
+/**
+* Return the current date in a string format 
+* @param {Object} date - current date.
+* @returns {string}
+*/
 function formatdate(date){
 	var year = date.getFullYear();
 	var month = date.getMonth()+1;

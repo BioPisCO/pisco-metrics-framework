@@ -25,8 +25,8 @@ var ManagementComponents = function () {
 	* @param {string} id - Component ID.
 	* @param {string} path - Location of this installation.
 	* @param {string} repository - URL where the component is stored.
-	* @param {object} dependencies - Library list of dependencies.
-	* @param {object} dataparsed - Updated component metadata.
+	* @param {Object} dependencies - Library list of dependencies.
+	* @param {JSON} dataparsed - Updated component metadata.
 	* @memberOf  ManagementComponents
 	*/
 	install: function(id, path, repository,dependencies,dataparsed,callback) {
@@ -39,8 +39,8 @@ var ManagementComponents = function () {
 					
 	},
 	/**
-	* Install all components into selected componentes XML file 
-	* @param {function} callback - Callback function (return true or false).
+	* Install all components into selected components XML file 
+	* @param {Requester~requestCallback} callback - Callback function (return message and true or false).
 	* @memberOf  ManagementComponents
 	*/
 	installComponents: function(callback) {
@@ -68,14 +68,14 @@ var ManagementComponents = function () {
 	
 
 }
-/** Do accesible module ManagementComponents */
+/** Make accessible module ManagementComponents */
 module.exports = ManagementComponents;
 
 
 /**
 * Update the component metadata
 * @param {string} id - Component ID.
-* @param {object} dataparsed - Updated component metadata.
+* @param {JSON} dataparsed - Updated component metadata.
 */
 function updateID(dataparsed,id,msg,callback){
 	var builder = new xml2js.Builder();

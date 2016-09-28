@@ -16,10 +16,10 @@ var Component = function () {}
 Component.prototype ={
  /**
  * Install the component and dependencies
- * @param {string} url - repository where the component is stored.
- * @param {list} dependencies - list of component dependencies.
+ * @param {string} url - repository link where the component is stored.
+ * @param {Object[]} dependencies - list of component dependencies.
  * @param {string} path - path where the component will be stored.
- * @param {function} callback - Callback function (return true or false).
+ * @param {Requester~requestCallback} callback - Callback function (return true or false).
  * @memberOf  Component
  */
   
@@ -48,11 +48,11 @@ Component.prototype ={
  
  
   /**
- * Execute one component
+ * Execute an specific component
  * @param {string} executable - Executable path file.
- * @param {list} params - list of params used in the execution.
+ * @param {Object[]} params - list of params used in the execution.
  * @param {JSON} resourceobject - resource to store into db.
- * @param {function} callback - Callback function (return true or false and value of this execution).
+ * @param {Requester~requestCallback} callback - Callback function (return true or false and value of this execution).
  * @memberOf  Component
  */
  run: function (executable,params,resourceobject,callback){
@@ -80,9 +80,9 @@ Component.prototype ={
 	});	
  },
   /**
- * Insert this component data into db
+ * Insert specific component data into db
  * @param {JSON} resource - new resource.
- * @param {function} callback - Callback function (return true or false and value of this execution).
+ * @param {Requester~requestCallback} callback - Callback function (return true or false and value of this execution).
  * @memberOf  Component
  */
  insert: function (resource, callback){
@@ -93,10 +93,15 @@ Component.prototype ={
  }
  
 }
-/** Do accesible module Component */
+/** Make accessible module Component */
 module.exports = Component;
 
-
+/**
+ * Install every dependence associated with a component
+ * @param {Object[]} dependencies - list of component dependencies.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false and value of this execution).
+ * @param {string} msg - string message with the results of this instalation
+ */
 function installdependencies(dependencies, callback,msg) {
 	var inserted = 0;
     var libraries = dependencies[0].library;
