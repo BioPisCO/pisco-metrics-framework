@@ -7,7 +7,7 @@ var SCH = require('./schema')
 	,schema = new SCH();
 
 /**
- * Object to manag all actions at the Registry Component using an Interface.
+ * Object to manage all actions at the Registry Component as a middle layer.
  * @constructor
  */
 var RegistryInterface = function () {
@@ -24,7 +24,7 @@ RegistryInterface.prototype ={
   /**
  * Execute Component Registry.
  * @param {string} url - url of XSD remote file schema to validate.
- * @param {function} callback - Callback function (return true or false).
+ * @param {Requester~requestCallback} callback - Callback function (return true or false).
  * @memberOf  RegistryInterface
  */
  register: function (url, callback) {
@@ -43,8 +43,8 @@ RegistryInterface.prototype ={
  },
  
  /**
- * create registered components HTML from registry schema data.
- * @param {function} callback - Callback function (return true or false and msg execution).
+ * Create registered components HTML from registry schema data.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false and msg execution).
  * @memberOf  RegistryInterface
  */
 createregistryHTML: function (callback){
@@ -67,7 +67,7 @@ createregistryHTML: function (callback){
 
  
 }
-/** Do accesible module RegistryInterface */
+/** Make accessible module RegistryInterface */
 module.exports = RegistryInterface;
 
  
