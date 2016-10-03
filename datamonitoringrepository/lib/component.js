@@ -86,6 +86,10 @@ Component.prototype ={
  * @memberOf  Component
  */
  insert: function (resource, callback){
+	/**
+	 * @name Component#db
+     * @type Database
+	 */
  	var db = new DB();
  	db.insert(resource, callback);
  	

@@ -3,8 +3,13 @@ var fs = require('fs')
 	,libxmljs = require('libxmljs')
 	,schemaconfig = require ('../config/configschema');
 
-var SCH = require('./schema')
-	,schema = new SCH();
+
+var SCH = require('./schema');
+/**
+ * @name RegistryInterface#schema
+ * @type Schema
+ */
+var schema = new SCH();
 
 /**
  * Object to manage all actions at the Registry Component as a middle layer.

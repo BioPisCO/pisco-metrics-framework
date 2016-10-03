@@ -1,4 +1,9 @@
 var DB = require('./database');
+
+/**
+ * @name ManagementGraphics#db
+ * @type Database
+ */
 var db = new DB();
 
 /**
