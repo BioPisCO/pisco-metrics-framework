@@ -1,11 +1,24 @@
 var MC = require('./managementcomponents.js');
+
+/**
+ * @name MonitoringInterface#managementcomponents
+ * @type ManagementComponents
+ */
 var managementcomponents = new MC();
 
 var MS = require('./monitoringschedule.js');
-mschedule = new MS();
+/**
+ * @name MonitoringInterface#managementschedule
+ * @type MonitoringSchedule
+ */
+var managementschedule = new MS();
 
 var MG = require('./managementgraphics.js');
-managementgraphics = new MG();
+/**
+ * @name MonitoringInterface#managementgraphics
+ * @type ManagementGraphics
+ */
+var managementgraphics = new MG();
 
 
 var environmentconf = require('../config/configenvironment.js')
@@ -43,7 +56,7 @@ MonitoringInterface.prototype ={
  * @memberOf  MonitoringInterface
  */
  run: function () {
-		mschedule.scheduleJobs();
+		managementschedule.scheduleJobs();
  },
 
 

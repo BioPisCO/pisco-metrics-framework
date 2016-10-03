@@ -9,7 +9,11 @@ var databaseconf = require('../config/configdatabase.js')
  * @constructor
  */
 var Database = function () {
-	//"MongoClient" interface in order to connect to a mongodb server.
+	/**
+  	 * MongoClient interface in order to connect to a mongodb server.
+	 * @name Database#MongoClient
+     * @type mongodb
+	 */
 	 this.MongoClient = mongodb.MongoClient;
 }
 

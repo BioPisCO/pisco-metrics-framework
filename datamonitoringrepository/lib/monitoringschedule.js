@@ -11,7 +11,12 @@ var environmentconf = require('../config/configenvironment.js')
  * @constructor
  */
 var MonitoringSchedule = function () { 
-	 this.listjobs = {}; 
+	/**
+	 * @name MonitoringSchedule#listjobs
+     * @type Object[]
+     * @default {}
+	 */
+	this.listjobs = {}; 
 }
 
 /**

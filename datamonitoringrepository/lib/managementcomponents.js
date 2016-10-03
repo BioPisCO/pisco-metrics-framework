@@ -11,7 +11,12 @@ var fs = require('fs')
  * @constructor
  */
 var ManagementComponents = function () { 
-	 this.listcomponents = []; 
+	/**
+	 * @name ManagementComponents#listcomponents
+     * @type Object[]
+     * @default []
+	 */
+	this.listcomponents = []; 
 }
 
 /**
