@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: lib/monitoringschedule.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: lib/monitoringschedule.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var environmentconf = require('../config/configenvironment.js')
+	,schedule = require('node-schedule')
+	,fs = require('fs')
+    ,xml2js = require('xml2js')
+    ,COMPONENT = require('./component.js');
+   
+
+
+/**
+ * Object to admin Scheduling Monitoring Components.
+ * @constructor
+ */
+var MonitoringSchedule = function () { 
+	/**
+	 * @name MonitoringSchedule#listjobs
+     * @type Object[]
+     * @default {}
+	 */
+	this.listjobs = {}; 
+}
+
+/**
+ * ScheduleComponent module.
+ * @module lib/schedulecomponent
+ */
+
+ MonitoringSchedule.prototype ={
+	/**
+	* Push a new component execution into jobs list
+	* @param {string} id - Component ID.
+	* @param {Object} job - job schedule for this component.
+	* @memberOf  MonitoringSchedule
+	*/
+	push: function(id, job) {
+		this.listjobs[id] = job;
+	},
+	/**
+	* Get one component execution from jobs list
+	* @param {string} id - Component ID.
+	* @memberOf  MonitoringSchedule
+	*/
+	get: function(id) {
+		//console.log(this.listjobs);
+		return this.listjobs[id];
+	},
+	/**
+	* Run one component following a schedule
+	* @param {string} frequency - Time interval of component execution in Cron format.
+	* @param {string} id - Component ID.
+	* @param {string} executable - File name of the executable component.
+	* @param {string} input - list of params used in the execution.
+	* @param {JSON} resourceobject - resource to store into db.
+	* @memberOf  MonitoringSchedule
+	*/
+	scheduleJob: function (frequency,id,executable,input,resourceobject) {
+		var component = new COMPONENT();
+		var job = schedule.scheduleJob(frequency, function() {
+			component.run(executable,input,resourceobject, function(msg, response){
+				if (response){ console.log(msg+'\ncomponent ' + id + ' was executed');}
+				else {console.log(msg+'\ncomponent ' + id + 'failed execution\n');}
+			});	// component.run end
+		}); //schedule.scheduleJob end
+		this.push(id,job);
+		
+	},	
+	
+	
+/**
+* Run the a list of components following a schedule
+* @memberOf  MonitoringSchedule
+*/
+
+  scheduleJobs: function () {
+	var parser = new xml2js.Parser();
+	var mschedule = this;
+	fs.readFile(environmentconf.SELECTEDCOMPONENTSXML, function(err, data) {
+		parser.parseString(data, function (err, dataparsed) {
+			 if (err) {console.log(err);}
+			 for(var i = 0; i &lt; dataparsed.selectedcomponents.component.length; i++) {
+				var installed = dataparsed.selectedcomponents.component[i].installed;
+				if(installed == 'false'){continue;}
+				var id = ''; id += dataparsed.selectedcomponents.component[i].id;
+				var freq = dataparsed.selectedcomponents.component[i].frequency;
+				var executable = dataparsed.selectedcomponents.component[i].executable;
+				var input = dataparsed.selectedcomponents.component[i].input;
+				var resourceobject = getresourcecollection(dataparsed.selectedcomponents.component[i]);
+				executable = environmentconf.SOURCEPATH + '/' + id + '/' + executable; // path where is the js executable
+				console.log(executable + ' ' + freq + ': ' + environmentconf.frequency[freq]);
+				mschedule.scheduleJob(environmentconf.frequency[freq],id,executable,input,resourceobject);
+			 } //for end
+		});//parser.parseString end
+	}); //fs.readFile end
+  },
+
+/**
+* Cancel the component execution
+* @param {string} id - Component ID.
+* @memberOf  MonitoringSchedule
+*/
+ cancelJob: function (id){
+	var job = this.get(id); 
+	job.cancel();	
+ },
+
+  /**
+ * Cancel all components execution
+ * @memberOf  MonitoringSchedule
+ */
+ cancelAllJobs: function (){
+	for (var id in listjobs) {
+		cancelJob(id);	
+	}
+ }
+
+},
+/** Do accesible module MonitoringSchedule */
+module.exports = MonitoringSchedule;
+
+/**
+ * Parse a JSON component based on a component extracted from XML structure
+ * @param {Object[]} parsedcomponent - component in XML format.
+ * @returns {JSON}  resource {name, type, metric, frequencies }
+*/
+function getresourcecollection(parsedcomponent){
+	//console.log('PARSED COMPONENT\n' + JSON.stringify(parsedcomponent));
+	var name = parsedcomponent.input[0].parameter[0];// resource name
+	var type = parsedcomponent.resource[0]; // resource type (db, software)
+	var metric = parsedcomponent.id[0];  // metric id
+	var frequencies = [ {'period' : parsedcomponent.frequency[0],
+					  'date' : '',
+					  'value' : '0' } ];
+	//console.log({'name' : name, 'type' : type, 'metric' : metric, 'frequencies' : frequencies });
+	return {'name' : name, 'type' : type, 'metric' : metric, 'frequencies' : frequencies };				 
+
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-lib_Component.html">lib/Component</a></li><li><a href="module-lib_Database.html">lib/Database</a></li><li><a href="module-lib_ManagementComponents.html">lib/ManagementComponents</a></li><li><a href="module-lib_ManagementGraphics.html">lib/ManagementGraphics</a></li><li><a href="module-lib_MonitoringInterface.html">lib/MonitoringInterface</a></li><li><a href="module-lib_schedulecomponent.html">lib/schedulecomponent</a></li></ul><h3>Externals</h3><ul><li><a href="external-express.html">express</a></li></ul><h3>Classes</h3><ul><li><a href="Component.html">Component</a></li><li><a href="Database.html">Database</a></li><li><a href="ManagementComponents.html">ManagementComponents</a></li><li><a href="ManagementGraphics.html">ManagementGraphics</a></li><li><a href="MonitoringInterface.html">MonitoringInterface</a></li><li><a href="MonitoringSchedule.html">MonitoringSchedule</a></li></ul><h3>Global</h3><ul><li><a href="global.html#formatdate">formatdate</a></li><li><a href="global.html#frequency">frequency</a></li><li><a href="global.html#SOURCEPATH">SOURCEPATH</a></li><li><a href="global.html#URL">URL</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a> on Mon Oct 03 2016 09:12:51 GMT+0100 (BST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

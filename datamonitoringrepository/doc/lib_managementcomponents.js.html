@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: lib/managementcomponents.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: lib/managementcomponents.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var fs = require('fs')
+	,environmentconf = require('../config/configenvironment.js')
+    ,xml2js = require('xml2js')
+    ,COMPONENT = require('./component');
+    
+				
+
+
+/**
+ * Object to admin Components installation.
+ * @constructor
+ */
+var ManagementComponents = function () { 
+	/**
+	 * @name ManagementComponents#listcomponents
+     * @type Object[]
+     * @default []
+	 */
+	this.listcomponents = []; 
+}
+
+/**
+ * ManagementComponents module.
+ * @module lib/ManagementComponents
+ */
+
+ ManagementComponents.prototype ={
+ 	/**
+	* Install one component
+	* @param {string} id - Component ID.
+	* @param {string} path - Location of this installation.
+	* @param {string} repository - URL where the component is stored.
+	* @param {Object} dependencies - Library list of dependencies.
+	* @param {JSON} dataparsed - Updated component metadata.
+	* @memberOf  ManagementComponents
+	*/
+	install: function(id, path, repository,dependencies,dataparsed,callback) {
+		var component = new COMPONENT();
+		component.install(repository,dependencies,path, function(msg,response){
+			if (response){
+				updateID(dataparsed,id,msg,callback);
+			}
+		});
+					
+	},
+	/**
+	* Install all components into selected components XML file 
+	* @param {Requester~requestCallback} callback - Callback function (return message and true or false).
+	* @memberOf  ManagementComponents
+	*/
+	installComponents: function(callback) {
+		var management = this;
+		var parser = new xml2js.Parser();
+		fs.readFile(environmentconf.SELECTEDCOMPONENTSXML, function(err, data) {
+			parser.parseString(data, function (err, dataparsed) {
+				if (err) {callback(err,false);}
+				for(var i = 0; i &lt; dataparsed.selectedcomponents.component.length; i++) {
+					var repository = ''; repository += dataparsed.selectedcomponents.component[i].repository;
+					var name = dataparsed.selectedcomponents.component[i].name;
+					var installed = dataparsed.selectedcomponents.component[i].installed;
+					var enable = dataparsed.selectedcomponents.component[i].enable;
+					var dependencies = dataparsed.selectedcomponents.component[i].dependencies;
+					//console.log(dependencies);
+					if(installed == 'false' &amp;&amp; enable == 'true') {
+						var id = dataparsed.selectedcomponents.component[i].id;
+						dataparsed.selectedcomponents.component[i].installed = 'true';
+						management.install(id,environmentconf.SOURCEPATH+'/'+id,repository,dependencies,dataparsed,callback);
+					}else{callback('This component '+name+ ' is already installed or is not available',true);}	
+				 } // for end 
+			});//parser.parseString end
+		}); //fs.readFile end
+	},
+	
+
+}
+/** Make accessible module ManagementComponents */
+module.exports = ManagementComponents;
+
+
+/**
+* Update the component metadata
+* @param {string} id - Component ID.
+* @param {JSON} dataparsed - Updated component metadata.
+*/
+function updateID(dataparsed,id,msg,callback){
+	var builder = new xml2js.Builder();
+	var finalcomponentsxml = builder.buildObject(dataparsed);
+	
+	fs.writeFile(environmentconf.SELECTEDCOMPONENTSXML,finalcomponentsxml, function (err) {
+		if (err ) {callback(err,false);}
+		//console.log('Component ' + id + ' has been updated in '+ environmentconf.SELECTEDCOMPONENTSXML);
+		msg += 'Component ' + id + ' has been installed\n';
+		callback(msg,true);
+	});//fs.writeFile end
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-lib_Component.html">lib/Component</a></li><li><a href="module-lib_Database.html">lib/Database</a></li><li><a href="module-lib_ManagementComponents.html">lib/ManagementComponents</a></li><li><a href="module-lib_ManagementGraphics.html">lib/ManagementGraphics</a></li><li><a href="module-lib_MonitoringInterface.html">lib/MonitoringInterface</a></li><li><a href="module-lib_schedulecomponent.html">lib/schedulecomponent</a></li></ul><h3>Externals</h3><ul><li><a href="external-express.html">express</a></li></ul><h3>Classes</h3><ul><li><a href="Component.html">Component</a></li><li><a href="Database.html">Database</a></li><li><a href="ManagementComponents.html">ManagementComponents</a></li><li><a href="ManagementGraphics.html">ManagementGraphics</a></li><li><a href="MonitoringInterface.html">MonitoringInterface</a></li><li><a href="MonitoringSchedule.html">MonitoringSchedule</a></li></ul><h3>Global</h3><ul><li><a href="global.html#formatdate">formatdate</a></li><li><a href="global.html#frequency">frequency</a></li><li><a href="global.html#SOURCEPATH">SOURCEPATH</a></li><li><a href="global.html#URL">URL</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a> on Mon Oct 03 2016 09:12:51 GMT+0100 (BST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
