@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: lib/schema.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: lib/schema.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var fs = require('fs')
+    ,xml2js = require('xml2js')
+    ,http = require("https")
+	,url = require("url")
+	,libxslt = require('libxslt')
+	,libxmljs = require('libxmljs')
+	,schemaconfig = require ('../config/configschema')
+	,shortid = require('shortid');
+
+var date = new Date();
+var version = 'final';
+var lastupdate = date.getDate() + '/' + date.getMonth()+ '/' + date.getFullYear();
+/**
+ * Object to manage different actions at the Components Registry schema.
+ * @constructor
+ */
+var Schema = function () {
+ 
+}
+
+
+/**
+ * Schema module.
+ * @module lib/Schema
+ */
+
+Schema.prototype ={
+  /**
+ * Verify the Component Registry schema.
+ * @param {string} url - url of XSD remote file schema to validate.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false).
+ * @memberOf  Schema
+ */
+ verify: function (urlxml, callback) {
+  var req = http.get(url.parse(urlxml), function (res) {
+	  if (res.statusCode !== 200) {
+		console.log(res.statusCode);
+		// handle error
+		return callback(false);
+	  }
+  	  var data='';
+  	  res.on("data", function (chunk) {
+    	data += chunk;
+  	  });
+
+  	  res.on("end", function () {
+  	  	//console.log('+++++++++++'+data+'+++++++++');
+  	  	var validator = require('xsd-schema-validator');
+		validator.validateXML(data, schemaconfig.COMPONENTSCHEMA, function(err, result) {
+			if (err) {
+				console.log(err); return callback(null,result);
+			}
+	
+			return callback(data,result.valid);
+		});//validator.validateXML end
+	 }); //res.on end	
+	 
+  }); //http.get end	
+ },
+
+ /**
+ * Add new component at Components Registry XML schema.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false).
+ * @param  {string} xmldata - New component XML data
+ * @memberOf  Schema
+ */
+ addcomponent: function (xmldata,callback) {
+	var resultArr = [];
+	var finalcomponents;
+ 	var parser = new xml2js.Parser();
+ 	
+	parser.parseString(xmldata, function (err, result) {
+	 if (err) {console.log(err);return callback(false);}
+	 var resultArr = [];
+	 var index = 0; 
+	 for(var i = 0; i &lt; result.components_metrics.component.length; i++) {
+			resultArr[index++] = result.components_metrics.component[i];
+			//console.log(resultArr);
+			//console.log('-----------------');
+	 }
+	 return modifyComponentDataXML(resultArr,callback);
+   });//parser.parseString end	
+ },
+  /**
+ * Create the Components Registry HTML schema.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false).
+ * @memberOf  Schema
+ */
+ createregistryHTML: function(callback) {
+	var encoding = 'utf8';
+	var docSource = fs.readFileSync(schemaconfig.SCHEMAXML, encoding);  
+	var stylesheetSource = fs.readFileSync(schemaconfig.SCHEMAXSL, encoding);
+	var stylesheet = libxslt.parse(stylesheetSource);
+	var result = stylesheet.apply(docSource);
+
+	//console.log(result);
+
+	fs.writeFile(schemaconfig.SCHEMAHTML , result, encoding, function (err) {
+		if (err) { console.log(err); return callback(false);}
+		else {console.log('Updated: ' + schemaconfig.SCHEMAHTML); callback(true);}
+	});	
+ }
+ 
+ 
+}
+/** Make accessible module Schema */
+module.exports = Schema;
+
+ /**
+ * Update the XML file at the Components Registry schema.
+ * @param {Object[]} newcomponents - array with the new components to add into
+ * Components Registry XML file.
+ * @param {Requester~requestCallback} callback - Callback function (return true or false).
+ */
+function modifyComponentDataXML(newcomponents,callback){
+	var parser = new xml2js.Parser();
+	fs.readFile(schemaconfig.SCHEMAXML, function(err, data) {
+    	parser.parseString(data, function (err, result) {
+      	 if (err) {console.log(err);return callback(false);} 
+      	 var originallength = result.components_metrics.component.length;
+		 for(var i = 0; i &lt; newcomponents.length; i++) { 
+       			result.components_metrics.component[originallength+i+1] = newcomponents[i];
+       			var name = result.components_metrics.component[originallength+i+1].name;
+       			result.components_metrics.component[originallength+i+1].id = generateComponentID(name);
+       			result.components_metrics.component[originallength+i+1].version = version;
+       			result.components_metrics.component[originallength+i+1].lastupdate = lastupdate;
+       			//console.log(result.components_metrics.component[originallength+1]);	
+       			//console.log('-----------------');
+	 	}
+	 	
+	 	var builder = new xml2js.Builder();
+		var finalcomponentsxml = builder.buildObject(result);
+		//console.log(finalcomponentsxml);
+ 	 	fs.writeFile(schemaconfig.SCHEMAXML,finalcomponentsxml, function (err) {
+ 			if (err ) {console.log(err);return callback(false);}
+ 			console.log('Components have been added to '+ schemaconfig.SCHEMAXML);
+ 			return callback(true);
+ 		});//fs.writeFile end
+       });//parser.parseString end
+	}); //fs.readFile end
+
+}
+ /**
+	* Get component unique ID composed for name+unique_number
+	* @param {string} name - Component name.
+	*/
+function generateComponentID(name) {
+		return id = name+'-'+shortid.generate();
+ }
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-lib_RegistryInterface.html">lib/RegistryInterface</a></li><li><a href="module-lib_Schema.html">lib/Schema</a></li></ul><h3>Externals</h3><ul><li><a href="external-express.html">express</a></li></ul><h3>Classes</h3><ul><li><a href="RegistryInterface.html">RegistryInterface</a></li><li><a href="Schema.html">Schema</a></li></ul><h3>Global</h3><ul><li><a href="global.html#alphanum">alphanum</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a> on Mon Oct 03 2016 09:13:12 GMT+0100 (BST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
