@@ -43,7 +43,7 @@ module.exports.AVAILABLECOMPONENTSHTML = '../views/availablecomponents.html'
 /***  Environment variables to create manage selected components HTM fron components registry ***/
 module.exports.MANAGECOMPONENTSHTML = '../views/managecomponents.html';
 module.exports.REGISTRYTOSELECTEDCOMPONENTSXSL = '../schema/registrytoselectedcomponents.xsl';
-module.exports.REGISTRYSCHEMAXML = '../../componentsregistry/schema/registryschema.xml';
+module.exports.REGISTRYSCHEMAXML = '../../componentregistry/schema/registryschema.xml';
 
 
 
