@@ -21,7 +21,7 @@ var MonitoringSchedule = function () {
 
 /**
  * ScheduleComponent module.
- * @module lib/schedulecomponent
+ * @module lib/MonitoringSchedule
  */
 
  MonitoringSchedule.prototype ={
