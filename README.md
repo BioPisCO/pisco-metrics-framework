@@ -12,7 +12,7 @@ This framework consists of 3 different elements that work together:
 
 ## Git
 
-`git clone git clone https://github.com/BioPisCO/pisco-metrics-framework.git`
+`git clone https://github.com/BioPisCO/pisco-metrics-framework.git`
 
 ## Requirements
 
