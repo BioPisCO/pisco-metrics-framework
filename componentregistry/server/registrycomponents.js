@@ -3,7 +3,7 @@ var SCH = require('../lib/schema')
   , child
   , schema = new SCH();
 
-  schema.verify('https://raw.githubusercontent.com/elixirhub/metrics-module-citation/master/schema.xml', function (xmldata,verify){	
+  schema.verify('https://raw.githubusercontent.com/BioPisCO/metrics-module-citation/master/schema.xml', function (xmldata,verify){	
 		console.log('schema verified: '+verify);
 		if (verify) {
 		schema.addcomponent( xmldata, function (add){
