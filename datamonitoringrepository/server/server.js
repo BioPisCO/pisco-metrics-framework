@@ -1,8 +1,8 @@
 var express = require('express')
 	,bodyParser = require('body-parser')
 	,xml2js = require('xml2js');
-var IR = require('../lib/interfacemonitoring')
-	,interfacemonitoring = new IR();
+var MI = require('../lib/monitoringinterface')
+	,monitoringinterface = new MI();
 
 
 
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 /** Create HTML page to manage the all components properties that will be include in Selected Components */
 app.get('/managecomponents', function(req, res) {
-	interfacemonitoring.createselectedcomponentsHTML(function(msg,response){
+	monitoringinterface.createselectedcomponentsHTML(function(msg,response){
 		if(!response) console.log(msg);
 		else {console.log(msg);res.render('managecomponents.html');}
 	}); 
@@ -46,7 +46,7 @@ app.get('/selectedcomponents', function(req, res) {
  */
 app.post('/install', function(req, res) {
   //res.send('You sent the URL "' + req.body.schema + '".');
-  interfacemonitoring.install(function (msg,response){
+  monitoringinterface.install(function (msg,response){
   	if(response) {
 		console.log(msg);
 		res.render("selectedcomponents", {data: msg}); //it is not necessary to add .html because we are using engine hbs html
@@ -61,7 +61,7 @@ app.post('/install', function(req, res) {
 
 app.post('/run', function(req, res) {
   //res.send('You sent the URL "' + req.body.schema + '".');
-  interfacemonitoring.run();
+  monitoringinterface.run();
   var msg = 'runing components...\n';
   res.render("selectedcomponents", {data: msg}); //it is not necessary add .html because we are using engine hbs html
 });
@@ -71,7 +71,7 @@ app.post('/run', function(req, res) {
 app.post('/createselectedcomponentsXML', function(req, res) {
 	var selectedcomponents = JSON.parse(req.body.componentsinput);
 	//console.log(req.body.componentsinput);
-	interfacemonitoring.createselectedcomponentsXML(selectedcomponents, function(msg,response){
+	monitoringinterface.createselectedcomponentsXML(selectedcomponents, function(msg,response){
 		if(response) {res.redirect('/selectedcomponents');}
 		else{res.send(msg);}
 	});
@@ -80,7 +80,7 @@ app.post('/createselectedcomponentsXML', function(req, res) {
 
 /** Create the available HTML page to manage the available components */
 app.get('/availablecomponents', function(req, res) {
-	interfacemonitoring.createavailablecomponentsHTML(function(msg,response){
+	monitoringinterface.createavailablecomponentsHTML(function(msg,response){
 		if(!response) console.log(msg);
 		else {console.log(msg);res.render('availablecomponents');}
 	}); 
@@ -102,7 +102,7 @@ app.post('/metricdetail', function(req, res) {
 	var date = formatdate(new Date()); 
 	if (typeof datestart == 'undefined'){datestart = date;} 
 	if (typeof dateend == 'undefined'){dateend = date;}
-	interfacemonitoring.graphicComponentsdata(idcomponent,datestart,dateend,function (resources, xlabels, ytitle, title, response){
+	monitoringinterface.graphicComponentsdata(idcomponent,datestart,dateend,function (resources, xlabels, ytitle, title, response){
 		if(resources === null){res.render('availablecomponents.html');}
 		else{
 			if(response){
@@ -123,7 +123,7 @@ app.post('/metricdetail', function(req, res) {
 app.get('/monitoringallmetrics', function(req, res) {
 	if(res){ 
 		if(typeof req.query.selectedmetrics == 'undefined'){
-			interfacemonitoring.getAvailableComponents(function(result,response){
+			monitoringinterface.getAvailableComponents(function(result,response){
 				if(!response){res.render('error reading available components.')}
 				else{
 					res.render('monitoringallmetrics', { metrics: result });
@@ -137,7 +137,7 @@ app.get('/monitoringallmetrics', function(req, res) {
 			var date = formatdate(new Date());
 			if (datestart == ''){datestart = date;} 
 			if (dateend == ''){dateend = date;} 
-			interfacemonitoring.graphicComponentbygroup(idsselectedcomponents, grouptype, datestart, dateend,
+			monitoringinterface.graphicComponentbygroup(idsselectedcomponents, grouptype, datestart, dateend,
 			 function (resources,xlabels,ytitle,title,response){
 				if(response) {
 					res.send(resources);
