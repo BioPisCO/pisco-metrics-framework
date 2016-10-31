@@ -14,7 +14,7 @@
     <dependencies>
       <library>oauth</library>
     </dependencies>
-    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
+    <repository>https://github.com/BioPisCO/metrics-module-tweets.git</repository>
   </component>
   <component>
     <id>metrics-module-citation-4yyFa7VQx</id>
