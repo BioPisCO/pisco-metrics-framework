@@ -86,6 +86,27 @@
 		 
 
 	 //<------------date picker-------->
+	 
+	 //<------------export data-------->
+	 function WriteToCSVFile() {
+					
+			var csv_data = "data:text/csv;charset=utf-8,";
+			//[{"Metric":"Citation","BLAST":"122817.78","SAM":"6544.78"}]///// [{"Resource":"SAM","Citation":"6544.78"},{"Resource":"BLAST","Citation":"122817.78"}]
+			csv_data +=  document.getElementById('result').value.replace('[{\"','').replace('\"}]','').split(',').join("\n").replace(/\":\"/g,',').replace(/\"/g,',');
+						
+			var encodedUri = encodeURI(csv_data);
+			window.open(encodedUri);
+	} 	
+		
+	function WriteToJsonFile() {
+					
+			var json_data = "data:text/json;charset=utf-8," ;
+			json_data +=  document.getElementById('result').value;
+			
+			var encodedUri = encodeURI(json_data);
+			window.open(encodedUri);
+	} 
+	 //<------------export data-------->
 
 	 //<------------graphic with ajax and d3js-------->
 
@@ -111,6 +132,7 @@
 					} ,
 					success: function (resp) {
 						//alert(JSON.stringify(resp));
+						document.getElementById('result').value = JSON.stringify(resp);
 						graphD3js(resp);
 					
 					}
@@ -348,9 +370,10 @@
 			</div> <!-- div col-md-4-->
 		</div> <!-- div row-->
 		<div class="well" style="background-color: white; border: none" >
-			<button type="button" class="btn btn-lg btn-primary">Download JSON</button>
-			<button type="button" class="btn btn-lg btn-info">Download CSV</button>
+			<button type="button" class="btn btn-lg btn-primary" onclick="WriteToJsonFile()">Download JSON</button>
+			<button type="button" class="btn btn-lg btn-info"  onclick="WriteToCSVFile()">Download CSV</button>
 		</div>
+		<input type="hidden" id="result" name="result"/></input>
     </div> <!-- /container -->
 		
 

@@ -45,7 +45,26 @@
 					 $('.panel div.clickable').click();
 				});
 
-				 	
+				function WriteToCSVFile() {
+					var div = document.getElementsByClassName("col-md-4");
+					var button = document.getElementsByClassName('btn btn-link')
+					var csv_data = "data:text/csv;charset=utf-8,";
+					 csv_data += "Metric,Resource,Type,Records\n";
+					for (var i = 0; i &lt; div.length; i++) {
+						var values = div[i].getElementsByTagName('b');
+						csv_data += button[i].innerHTML.replace(/&amp;.*\s*/,',');
+						for (var j = 0; j &lt; values.length; j++) { 
+							//alert(div[i].getElementsByTagName('b')[0].innerHTML);
+							//var value = div[i].innerText.split(/\s*\n\s*/).join(",");
+							var value = values[j].innerHTML;
+							csv_data += value + ',';					
+  						}
+  						csv_data += '\n';	
+  						//alert(csv_data);	
+					}
+					var encodedUri = encodeURI(csv_data);
+					window.open(encodedUri);
+				} 	
 			</script>
 
 		  </head>
@@ -111,7 +130,7 @@
 					  </div>
 					</div> <!-- /.row -->
 				</xsl:for-each>
-				<button type="button" class="btn btn-lg btn-primary">Download all data</button>
+				<button type="button" class="btn btn-lg btn-primary" onclick="WriteToCSVFile()">Download all data</button>&#160;
 				<button type="button" class="btn btn-lg btn-info" onclick="location.href='/monitoringallmetrics';">Monitoring metrics</button>
 			 </div><!-- /.container -->
 
