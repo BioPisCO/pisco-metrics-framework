@@ -75,7 +75,37 @@
 		  });
 		});
 		
-  		
+  		function WriteToCSVFile() {
+					
+			var csv_data = "data:text/csv;charset=utf-8,";
+			csv_data += {{{ytitle}}} + '\n';
+			csv_data += {{{title}}} + '\n';
+				
+			var dates = new Array( {{{xlabels}}});
+			var values = new Array({{data}});  
+			
+			for (i in dates[0]){
+				csv_data += dates[0][i][1] + ',' + values[0][i][1] + '\n';
+			}
+						
+			var encodedUri = encodeURI(csv_data);
+			window.open(encodedUri);
+		} 	
+		
+		function WriteToJsonFile() {
+					
+			var json_data = "data:text/json;charset=utf-8," + '[';
+							
+			var dates = new Array( {{{xlabels}}});
+			var values = new Array({{data}});  
+			
+			for (i in dates[0]){
+				json_data += "{ date : " + dates[0][i][1] + " , value : " + values[0][i][1] + '}';
+			}
+			json_data += ']';
+			var encodedUri = encodeURI(json_data);
+			window.open(encodedUri);
+		}
 
 	</script>
 
@@ -171,15 +201,8 @@
 				</form>
 			</div> <!-- div col-md-4-->
 		</div> <!-- div row-->
-		<button type="button" class="btn btn-primary" id="jsondown">Download JSON</button>
-		<script>
-			$("#jsondown").bind("click",function(){
-				 var href = "data:application/octet-stream," + encodeURIComponent(JSON.stringify({{data}}));
-				 location.href = href;
-				 return true;
-			});
-		</script>
-		<button type="button" class="btn  btn-info">Download CSV</button>
+		<button type="button" class="btn btn-primary"  onclick="WriteToJsonFile()">Download JSON</button>
+		<button type="button" class="btn  btn-info" onclick="WriteToCSVFile()">Download CSV</button>
     </div> <!-- /container -->
 
 
