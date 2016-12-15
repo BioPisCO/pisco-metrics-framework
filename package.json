@@ -6,7 +6,7 @@
   "contributors": [
     {
       "name": "Haydee Artaza, Manuel Corpas, Rafel Jimenez",
-      "email": "haydee.artaza@tgac.ac.uk"
+      "email": "haydee.artaza@earlham.ac.uk"
     }
   ],
   "keywords": [
@@ -44,5 +44,5 @@
   },
   "subdomain": "metrics",
   "analyze": true,
-  "license": "TGAC"
+  "license": "Earlham"
 }
