@@ -30,7 +30,7 @@
     "js2xmlparser": "^1.0.0",
     "jsdoc": "^3.4.0",
     "jstoxml": "^0.2.3",
-    "libxmljs": "^0.17.0",
+    "libxmljs": "github:polotek/libxmljs",
     "libxslt": "^0.6.3",
     "mongodb": "^2.1.4",
     "monitor": "^0.6.10",
