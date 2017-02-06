@@ -33,7 +33,7 @@
     </dependencies>
     <frequency>daily</frequency>
     <resources>
-      <rsc>database</rsc>
+      <rsc>software</rsc>
     </resources>
     <repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>
     <id>metrics-module-citation-4yyFa7VQx</id>
