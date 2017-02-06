@@ -31,7 +31,7 @@
     <dependencies>
       <library>xml2js</library>
     </dependencies>
-    <frequency>monthly</frequency>
+    <frequency>daily</frequency>
     <resources>
       <rsc>database</rsc>
     </resources>
@@ -45,13 +45,13 @@
     <description>Topic spread</description>
     <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
     <input>
-      <parameter>github</parameter>
+      <parameter>SAMtools</parameter>
     </input>
     <output>list</output>
     <dependencies>
       <library>oauth</library>
     </dependencies>
-    <frequency>monthly</frequency>
+    <frequency>hour</frequency>
     <resources>
       <rsc>software</rsc>
     </resources>
@@ -65,7 +65,7 @@
     <description>Page views count</description>
     <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
     <input>
-      <parameter>SAM</parameter>
+      <parameter>SAMtools</parameter>
     </input>
     <output>number</output>
     <dependencies>
