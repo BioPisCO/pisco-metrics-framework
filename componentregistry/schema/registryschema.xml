@@ -25,7 +25,7 @@
     <description>Citations in publications</description>
     <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
     <input>
-      <parameter>swissprot,swiss prot,swiss-prot,UniProtKB,uniprot</parameter>
+      <parameter>BLAST</parameter>
     </input>
     <output>number</output>
     <dependencies>
@@ -45,7 +45,7 @@
     <description>Topic spread</description>
     <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
     <input>
-      <parameter>SAMtools</parameter>
+      <parameter>BLAST</parameter>
     </input>
     <output>list</output>
     <dependencies>
@@ -65,7 +65,7 @@
     <description>Page views count</description>
     <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
     <input>
-      <parameter>SAMtools</parameter>
+      <parameter>BLAST</parameter>
     </input>
     <output>number</output>
     <dependencies>
