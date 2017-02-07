@@ -105,11 +105,16 @@ createselectedcomponentsXML: function (newselectedcomponents,callback) {
 		var parser = new xml2js.Parser();
 		fs.readFile(environmentconf.SELECTEDCOMPONENTSXML, function(err, data) {
 		 	parser.parseString(data, function (err, result) {
-				 if (err) {console.log(err);} 
-				 var originallength = result.selectedcomponents.component.length;
+				 if (err) {console.log(err);} 	 
 				 for(var i = 0; i < newselectedcomponents.selectedcomponents.length; i++) { 
-							result.selectedcomponents.component.push(newselectedcomponents.selectedcomponents[i].component);
-				 			//console.log('-----------------');
+				 	 console.log(newselectedcomponents.selectedcomponents[i].component);
+				 	 if(typeof result.selectedcomponents.component == 'undefined'){
+				 	 	result.selectedcomponents=[];result.selectedcomponents['component']=Array(newselectedcomponents.selectedcomponents[i].component);
+					 }else{
+					 	
+						result.selectedcomponents.component.push(newselectedcomponents.selectedcomponents[i].component);
+				 			
+				 	}
 			 	}
 				//console.log(result);
 				var builder = new xml2js.Builder();

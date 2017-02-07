@@ -72,7 +72,7 @@ app.post('/createselectedcomponentsXML', function(req, res) {
 	var selectedcomponents = JSON.parse(req.body.componentsinput);
 	//console.log(req.body.componentsinput);
 	monitoringinterface.createselectedcomponentsXML(selectedcomponents, function(msg,response){
-		if(response) {res.redirect('/selectedcomponents');}
+		if(response) { res.send('Metrics metadata were exported successfully'); }//res.redirect('/selectedcomponents');} In next versions this acction must go selectedcomponents
 		else{res.send(msg);}
 	});
 	
