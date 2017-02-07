@@ -55,7 +55,7 @@
     <resources>
       <rsc>software</rsc>
     </resources>
-    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
+    <repository>https://github.com/BioPisCO/metrics-module-tweets.git</repository>
     <id>metrics-module-tweets-4JHxt54kW</id>
     <version>final</version>
     <lastupdate>11/3/2016</lastupdate>
