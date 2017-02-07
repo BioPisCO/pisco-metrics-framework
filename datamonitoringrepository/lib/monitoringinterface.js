@@ -111,9 +111,7 @@ createselectedcomponentsXML: function (newselectedcomponents,callback) {
 				 	 if(typeof result.selectedcomponents.component == 'undefined'){
 				 	 	result.selectedcomponents=[];result.selectedcomponents['component']=Array(newselectedcomponents.selectedcomponents[i].component);
 					 }else{
-					 	
 						result.selectedcomponents.component.push(newselectedcomponents.selectedcomponents[i].component);
-				 			
 				 	}
 			 	}
 				//console.log(result);
