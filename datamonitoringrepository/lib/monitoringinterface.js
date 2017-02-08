@@ -107,7 +107,7 @@ createselectedcomponentsXML: function (newselectedcomponents,callback) {
 		 	parser.parseString(data, function (err, result) {
 				 if (err) {console.log(err);} 	 
 				 for(var i = 0; i < newselectedcomponents.selectedcomponents.length; i++) { 
-				 	 console.log(newselectedcomponents.selectedcomponents[i].component);
+				 	 //console.log(newselectedcomponents.selectedcomponents[i].component);
 				 	 if(typeof result.selectedcomponents.component == 'undefined'){
 				 	 	result.selectedcomponents=[];result.selectedcomponents['component']=Array(newselectedcomponents.selectedcomponents[i].component);
 					 }else{
