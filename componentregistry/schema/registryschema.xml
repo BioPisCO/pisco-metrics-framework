@@ -3,7 +3,7 @@
   <component>
     <name>Metric name</name>
     <description>A brief description about this metric</description>
-    <authors>TGAC, EBI, ELIXIR</authors>
+    <authors>list of autors</authors>
     <input>
       <parameter>parameters to execute this component</parameter>
     </input>
@@ -19,66 +19,5 @@
     <id>unique id</id>
     <version>alfa, beta, comercial, production, etc.</version>
     <lastupdate>2012-12-13T12:12:12</lastupdate>
-  </component>
-  <component>
-    <name>metrics-module-citation</name>
-    <description>Citations in publications</description>
-    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
-    <input>
-      <parameter>BLAST</parameter>
-    </input>
-    <output>number</output>
-    <dependencies>
-      <library>xml2js</library>
-    </dependencies>
-    <frequency>daily</frequency>
-    <resources>
-      <rsc>software</rsc>
-    </resources>
-    <repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>
-    <id>metrics-module-citation-4yyFa7VQx</id>
-    <version>final</version>
-    <lastupdate>21/0/2016</lastupdate>
-  </component>
-  <component>
-    <name>metrics-module-tweets</name>
-    <description>Topic spread</description>
-    <authors>Artaza Haydee, Manuel Corpas, Rafael Jimenez</authors>
-    <input>
-      <parameter>BLAST</parameter>
-    </input>
-    <output>list</output>
-    <dependencies>
-      <library>oauth</library>
-    </dependencies>
-    <frequency>hour</frequency>
-    <resources>
-      <rsc>software</rsc>
-    </resources>
-    <repository>https://github.com/BioPisCO/metrics-module-tweets.git</repository>
-    <id>metrics-module-tweets-4JHxt54kW</id>
-    <version>final</version>
-    <lastupdate>11/3/2016</lastupdate>
-  </component>
-  <component>
-    <name>metrics-module-pageviews</name>
-    <description>Page views count</description>
-    <authors>Artaza Haydee, Corpas Manuel, Jimenez Rafael</authors>
-    <input>
-      <parameter>BLAST</parameter>
-    </input>
-    <output>number</output>
-    <dependencies>
-      <library>es6-promise</library>
-      <library>request</library>
-    </dependencies>
-    <frequency>daily</frequency>
-    <resources>
-      <rsc>software</rsc>
-    </resources>
-    <repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>
-    <id>metrics-module-pageviews-SJ6c11c-</id>
-    <version>final</version>
-    <lastupdate>6/4/2016</lastupdate>
   </component>
 </components_metrics>
