@@ -43,6 +43,8 @@ RegistryInterface.prototype ={
 						});
 					}
 			});
+		}else{
+			callback(verify);
 		}
 	 });
  },

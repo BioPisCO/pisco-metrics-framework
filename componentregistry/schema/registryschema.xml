@@ -75,7 +75,7 @@
     <resources>
       <rsc>software</rsc>
     </resources>
-    <repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>
+    <repository>https://github.com/BioPisCO/metrics-module-tweets.git</repository>
     <id>metrics-module-tweets-SyAyuso</id>
     <version>final</version>
     <lastupdate>13/3/2016</lastupdate>
