@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<availablecomponents>
+	<component>
+		<id>metrics-module-citation-VJ6K67Nme</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>	
+		<frequency>daily</frequency>
+		<resource>
+			<name>SAMtools</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-citation-SJpqM8-B</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>	
+		<frequency>daily</frequency>
+		<resource>
+			<name>BioPerl</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-citation-SJOoGUWr</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>	
+		<frequency>daily</frequency>
+		<resource>
+			<name>Clustal</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-citation-r1UsGU-H</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>	
+		<frequency>daily</frequency>
+		<resource>
+			<name>BFAST</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-citation-HJAjGIbS</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>	
+		<frequency>daily</frequency>
+		<resource>
+			<name>UGENE</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-citation-EJOFpX4Ql</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>	
+		<frequency>daily</frequency>
+		<resource>
+			<name>FASTA</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-citation-BJ68fL-H</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>	
+		<frequency>daily</frequency>
+		<resource>
+			<name>Bioconductor</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-citation-BJ2sM8ZS</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>	
+		<frequency>daily</frequency>
+		<resource>
+			<name>T-Coffe</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-citation-4yyFa7VQx</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>	
+		<frequency>daily</frequency>
+		<resource>
+			<name>BLAST</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-citation-4kMKaQVQx</id>
+		<name>Citation</name>
+		<description>Provides evidence of the resource impact in publications saved in Pubmed Central (PMC) repository</description>
+		<detail>
+				<api>NCBI API (E-utilities)</api>
+				<query>Keyword separated by comma. Includes all words and numbers in the title, abstract and article body, as well as in table and figure captions and in the article reference section</query>
+				<output>Total publication that includes the keyword</output>
+		</detail>	
+		<frequency>daily</frequency>
+		<resource>
+			<name>HMMER</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-citation.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-pageviews-B1z0fIWr-</id>
+		<name>Wiki page views</name>
+		<description>Provides a pageviews trends on specific articles or projects in Wikipedia</description>
+		<detail>
+				<api>Analytics/Pageview API</api>
+				<query>Keyword to access Wikipedia</query>
+				<output>Total page views for this Wikipedia accession</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>Biocondctor</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-pageviews-Bybym8WB-</id>
+		<name>Wiki page views</name>
+		<description>Provides a pageviews trends on specific articles or projects in Wikipedia</description>
+		<detail>
+				<api>Analytics/Pageview API</api>
+				<query>Keyword to access Wikipedia</query>
+				<output>Total page views for this Wikipedia accession</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>UGENE</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-pageviews-ByP0fIbH-</id>
+		<name>Wiki page views</name>
+		<description>Provides a pageviews trends on specific articles or projects in Wikipedia</description>
+		<detail>
+				<api>Analytics/Pageview API</api>
+				<query>Keyword to access Wikipedia</query>
+				<output>Total page views for this Wikipedia accession</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>BFAST</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-pageviews-HJ4CMIbH-</id>
+		<name>Wiki page views</name>
+		<description>Provides a pageviews trends on specific articles or projects in Wikipedia</description>
+		<detail>
+				<api>Analytics/Pageview API</api>
+				<query>Keyword to access Wikipedia</query>
+				<output>Total page views for this Wikipedia accession</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>BioPerl</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-pageviews-ryCAzUZS-</id>
+		<name>Wiki page views</name>
+		<description>Provides a pageviews trends on specific articles or projects in Wikipedia</description>
+		<detail>
+				<api>Analytics/Pageview API</api>
+				<query>Keyword to access Wikipedia</query>
+				<output>Total page views for this Wikipedia accession</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>T-Coffe</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-pageviews-ryv2zy9W-</id>
+		<name>Wiki page views</name>
+		<description>Provides a pageviews trends on specific articles or projects in Wikipedia</description>
+		<detail>
+				<api>Analytics/Pageview API</api>
+				<query>Keyword to access Wikipedia</query>
+				<output>Total page views for this Wikipedia accession</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>FASTA</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-pageviews-S1Gxmy9b</id>
+		<name>Wiki page views</name>
+		<description>Provides a pageviews trends on specific articles or projects in Wikipedia</description>
+		<detail>
+				<api>Analytics/Pageview API</api>
+				<query>Keyword to access Wikipedia</query>
+				<output>Total page views for this Wikipedia accession</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>SAMtools</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-pageviews-S1iAfIWr-</id>
+		<name>Wiki page views</name>
+		<description>Provides a pageviews trends on specific articles or projects in Wikipedia</description>
+		<detail>
+				<api>Analytics/Pageview API</api>
+				<query>Keyword to access Wikipedia</query>
+				<output>Total page views for this Wikipedia accession</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>Clustal</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-pageviews-SJ6c11c-</id>
+		<name>Wiki page views</name>
+		<description>Provides a pageviews trends on specific articles or projects in Wikipedia</description>
+		<detail>
+				<api>Analytics/Pageview API</api>
+				<query>Keyword to access Wikipedia</query>
+				<output>Total page views for this Wikipedia accession</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>BLAST</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-pageviews-SyO_Gy9Z</id>
+		<name>Wiki page views</name>
+		<description>Provides a pageviews trends on specific articles or projects in Wikipedia</description>
+		<detail>
+				<api>Analytics/Pageview API</api>
+				<query>Keyword to access Wikipedia</query>
+				<output>Total page views for this Wikipedia accession</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>HMMER</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metrics-module-pageviews.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-tweets-S1lbEUWH</id>
+		<name>Social Media</name>
+		<description>Provides evidence about the sharing or the discussing of specific resource into the Twitter Community</description>
+		<detail>
+				<api>Twitter Streaming API</api>
+				<query>Keyword or comma-separated words</query>
+				<output>Total tweets scaned in a specific time interval (minute, day, month)</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>BioPerl</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-tweets-rJJMVUZB</id>
+		<name>Social Media</name>
+		<description>Provides evidence about the sharing or the discussing of specific resource into the Twitter Community</description>
+		<detail>
+				<api>Twitter Streaming API</api>
+				<query>Keyword or comma-separated words</query>
+				<output>Total tweets scaned in a specific time interval (minute, day, month)</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>T-Coffe</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-tweets-NJMD67VQl</id>
+		<name>Social Media</name>
+		<description>Provides evidence about the sharing or the discussing of specific resource into the Twitter Community</description>
+		<detail>
+				<api>Twitter Streaming API</api>
+				<query>Keyword or comma-separated words</query>
+				<output>Total tweets scaned in a specific time interval (minute, day, month)</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>SAMtools</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-tweets-HkB-4LWS</id>
+		<name>Social Media</name>
+		<description>Provides evidence about the sharing or the discussing of specific resource into the Twitter Community</description>
+		<detail>
+				<api>Twitter Streaming API</api>
+				<query>Keyword or comma-separated words</query>
+				<output>Total tweets scaned in a specific time interval (minute, day, month)</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>Clustal</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-tweets-HJbf4LZH</id>
+		<name>Social Media</name>
+		<description>Provides evidence about the sharing or the discussing of specific resource into the Twitter Community</description>
+		<detail>
+				<api>Twitter Streaming API</api>
+				<query>Keyword or comma-separated words</query>
+				<output>Total tweets scaned in a specific time interval (minute, day, month)</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>UGENE</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-tweets-EyBLa7N7l</id>
+		<name>Social Media</name>
+		<description>Provides evidence about the sharing or the discussing of specific resource into the Twitter Community</description>
+		<detail>
+				<api>Twitter Streaming API</api>
+				<query>Keyword or comma-separated words</query>
+				<output>Total tweets scaned in a specific time interval (minute, day, month)</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>HMMER</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-tweets-ByXWNIZB</id>
+		<name>Social Media</name>
+		<description>Provides evidence about the sharing or the discussing of specific resource into the Twitter Community</description>
+		<detail>
+				<api>Twitter Streaming API</api>
+				<query>Keyword or comma-separated words</query>
+				<output>Total tweets scaned in a specific time interval (minute, day, month)</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>BFAST</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-tweets-ByAlN8bH</id>
+		<name>Social Media</name>
+		<description>Provides evidence about the sharing or the discussing of specific resource into the Twitter Community</description>
+		<detail>
+				<api>Twitter Streaming API</api>
+				<query>Keyword or comma-separated words</query>
+				<output>Total tweets scaned in a specific time interval (minute, day, month)</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>Bioconductor</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-tweets-4J0BTmNQx</id>
+		<name>Social Media</name>
+		<description>Provides evidence about the sharing or the discussing of specific resource into the Twitter Community</description>
+		<detail>
+				<api>Twitter Streaming API</api>
+				<query>Keyword or comma-separated words</query>
+				<output>Total tweets scaned in a specific time interval (minute, day, month)</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>BLAST</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>	
+	</component>
+	<component>
+		<id>metrics-module-tweets-41hLa7Emx</id>
+		<name>Social Media</name>
+		<description>Provides evidence about the sharing or the discussing of specific resource into the Twitter Community</description>
+		<detail>
+				<api>Twitter Streaming API</api>
+				<query>Keyword or comma-separated words</query>
+				<output>Total tweets scaned in a specific time interval (minute, day, month)</output>
+		</detail>			
+		<frequency>daily</frequency>
+		<resource>
+			<name>FASTA</name>
+			<type>software</type>
+		</resource>
+		<repository>https://github.com/BioPisCO/metric-module-tweets.git</repository>	
+	</component>
+</availablecomponents>
