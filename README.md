@@ -26,7 +26,7 @@ This framework consists of 3 different elements that work together:
 
 ## Documentation
 
-1. [the INSTALL document] (https://github.com/haydeeartaza/BioPisCO/pisco-metrics-framework/tree/master/)
+1. [User Manual] (https://drive.google.com/file/d/0B3RWb8BCtZH1alA5Q0tRNDU0QUk/view?usp=sharing)
 2. [SPECIFICATION document] (https://drive.google.com/file/d/0B3RWb8BCtZH1Uk1qbDJkN3ZoWEU/view?usp=sharing)
 3. [METRICS specification document] (https://github.com/haydeeartaza/pisco-metrics-framework/tree/master/)
 4. METRICS examples:
