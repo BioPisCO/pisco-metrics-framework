@@ -1,6 +1,7 @@
-# PisCO: A Performance Indicators Framework for COllection of Biological Resource Metrics
+# PisCO: A Performance Indicators Framework for COllection of Bioinformatics Resource Metrics
 
-PIsco is a Node.js JavaScript framework for collection, registration and sharing of metrics for biological data, software and training material resources. Metrics input in PIsCO can strategically help evaluate the impact of specific bioinformatics resources. Metrics stored in a common repository and can be shared and reused by others teams, laboratories or academic institutions.
+PIsco is a Node.js server-side JavaScript framework for the collection, registration and sharing of metrics used to evaluate the impact of bioinformatics-related resources such as software, training or databases. The metrics framework can be used to capture standard definitions of metrics, facilitate the collection of data, monitor resources and share data to be reused by other teams, laboratories or academic institutions.
+
 
 ## PIsCO structure
 
